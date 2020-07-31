@@ -1,0 +1,28 @@
+<h1>Promotional pages</h1>
+<ng-container *ngIf="pages | async as pagesList; else loading">
+  <mat-list role="pages-list" class="pages" *ngFor="let page of pagesList.data">
+    <mat-list-item role="page-link">
+      <a [routerLink]="['/pages', locale, page.slug]">
+        {{ page.fields.seo.title }}
+      </a>
+    </mat-list-item>
+  </mat-list>
+  <div class="paginator" fxLayout="row wrap" fxLayoutAlign="end center">
+    <a
+      class="paginator__link"
+      [ngClass]="{ paginator__link_active: j + 1 === currentPage }"
+      *ngFor="
+        let i of math.ceil(pagesList.meta.count / pageSize) | repeat;
+        let j = index
+      "
+      routerLink="./"
+      [queryParams]="{ page: j + 1 }"
+    >
+      {{ j + 1 }}
+    </a>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div fxLayout="row" fxLayoutAlign="center center">Loading...</div>
+</ng-template>

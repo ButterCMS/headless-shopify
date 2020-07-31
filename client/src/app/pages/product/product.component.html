@@ -1,0 +1,6 @@
+<div class="product">
+  <img [src]="product.image" [alt]="product.image_alt" class="product__image" />
+  <h4>{{ product.title }}</h4>
+  <div>{{ product.price }}</div>
+  <div [innerHTML]="product.description" class="product__description"></div>
+</div>

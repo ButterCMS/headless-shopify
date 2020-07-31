@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a routerLink="/" class="shop-name">{{
+      (storeInfo | async)?.data.shop.name
+    }}</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="menu">
+    <a routerLink="/pages/en" class="menu__link">Pages</a>
+    <a routerLink="/products" class="menu__link">Products</a>
+    <cart-cart-toggle></cart-cart-toggle>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,20 @@
+<div fxLayoutAlign="center center" class="item-number-picker">
+  <button
+    [disabled]="itemNumber <= 1"
+    mat-mini-fab
+    color="primary"
+    (click)="decrease()"
+    class="item-number-picker__minus"
+  >
+    <mat-icon>remove</mat-icon>
+  </button>
+  <div class="item-number-picker__counter">{{ itemNumber }}</div>
+  <button
+    color="primary"
+    mat-mini-fab
+    (click)="increase()"
+    class="item-number-picker__plus"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

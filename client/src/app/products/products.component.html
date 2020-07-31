@@ -1,0 +1,4 @@
+<h1>Products</h1>
+<shared-products
+  [products]="(products | async)?.data.products.edges"
+></shared-products>

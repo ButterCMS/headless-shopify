@@ -1,0 +1,23 @@
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.page-content {
+  padding: 20px;
+  margin-top: 112px;
+}
+
+.shop-name {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu__link {
+  margin: 0 10px;
+}
+
+.menu__link:first-child {
+  margin-left: 0;
+}

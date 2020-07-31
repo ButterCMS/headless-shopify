@@ -1,0 +1,33 @@
+.banner {
+  position: relative;
+  width: calc(100% + 40px);
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  max-height: 40%;
+  margin: -20px -20px 20px -20px;
+  color: #ffffff;
+}
+
+.banner-content {
+  z-index: 20;
+  padding: 20px;
+}
+
+.banner-content__action-button {
+  margin: 20px;
+  color: #ffffff;
+}
+
+.banner-content__title {
+  text-align: center;
+}
+
+.banner-content__description {
+  padding: 20px;
+  text-align: center;
+}
+
+.promotional-products__headline {
+  text-align: center;
+}

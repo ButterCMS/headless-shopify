@@ -1,0 +1,46 @@
+<div *ngIf="page | async as pageData; else loading">
+  <div
+    class="banner"
+    [ngStyle]="{
+      'background-image': 'url(' + pageData.fields.hero.image + ')'
+    }"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div class="shadow"></div>
+    <div class="banner-content" fxLayout="column" fxLayoutAlign="center center">
+      <h1 class="banner-content__title">{{ pageData.fields.hero.headline }}</h1>
+      <div class="banner-content__description">
+        <h2>{{ pageData.fields.hero.sub_headline }}</h2>
+      </div>
+      <a
+        [href]="pageData.fields.hero.cta_button_link"
+        color="accent"
+        mat-raised-button
+        class="banner-content__action-button"
+      >
+        {{ pageData.fields.hero.cta_button_text }}
+      </a>
+    </div>
+  </div>
+  <h2 class="promotional-products__headline">
+    {{ pageData.fields.products.headline }}
+  </h2>
+  <div
+    class="promotional-products"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <page-product
+      fxFlex.gt-sm="1 0 24%"
+      fxFlex.gt-xs="1 0 50%"
+      fxFlex="1 0 100%"
+      class="promotional-products__product"
+      *ngFor="let product of pageData.fields.products.products_list"
+      [product]="product"
+    ></page-product>
+  </div>
+</div>
+<ng-template #loading>
+  <div fxLayout="row" fxLayoutAlign="center center">Loading...</div>
+</ng-template>

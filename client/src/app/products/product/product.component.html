@@ -1,0 +1,74 @@
+<div *ngIf="(product | async)?.data.productByHandle as productData">
+  <h1>{{ productData.title }}</h1>
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <div fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign="start start">
+      <img
+        class="product__image_featured"
+        [src]="productData.images.edges[0].node.transformedSrc"
+        [alt]="productData.images.edges[0].node.altText"
+      />
+      <div class="product-data">
+        <p
+          class="product-data__description"
+          [innerHTML]="productData.descriptionHtml"
+        ></p>
+        <div class="product-tags" fxLayoutAlign="start center">
+          <div class="product-tags__tag" *ngFor="let tag of productData.tags">
+            #{{ tag }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+      class="product-variants"
+    >
+      <div
+        *ngFor="let variant of productData.variants.edges"
+        class="product-variant"
+      >
+        <img
+          class="product-variant__image"
+          [src]="variant.node.image.transformedSrc"
+          [alt]="variant.node.image.altText"
+        />
+        <div>
+          <div class="product-variant__characteristics">
+            <b>Price</b>: {{ variant.node.priceV2.amount }}
+            {{ variant.node.priceV2.currencyCode }}
+          </div>
+          <div
+            *ngFor="let option of variant.node.selectedOptions"
+            class="product-variant__characteristics"
+          >
+            <b> {{ option.name }} </b>:
+            {{ option.value }}
+          </div>
+
+          <div
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            class="product-variant__actions"
+          >
+            <shared-item-number-picker
+              class="item-number-picker"
+              [defaultNumber]="1"
+              (changedItemNumber)="onChangedItemNumber(variant.node.id, $event)"
+            >
+            </shared-item-number-picker>
+            <button
+              mat-raised-button
+              [sharedAddToCart]="variant.node"
+              [productHandle]="productData.handle"
+              [productTitle]="productData.title"
+              [productQuantity]="productQuantity[variant.node.id]"
+            >
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

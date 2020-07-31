@@ -1,0 +1,41 @@
+{
+  "name": "netlify-angular",
+  "version": "0.0.1",
+  "description": "Shopify StoreFront integrated with ButterCMS",
+  "main": "functions/server.js",
+  "scripts": {
+    "build": "cd client && npm install && ng build --prod && cd ../ && netlify-lambda build express",
+    "start": "nodemon server-local.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orlyohreally/netlify-angular.git"
+  },
+  "keywords": [
+    "netlify",
+    "angular",
+    "express.js"
+  ],
+  "author": "Orly Knop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orlyohreally/netlify-angular/issues"
+  },
+  "homepage": "https://github.com/orlyohreally/netlify-angular#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "graphql-request": "^1.8.2",
+    "multipassify": "^1.1.0",
+    "prerender-node": "^3.2.5",
+    "request-promise": "^4.2.5",
+    "shopify-hmac-validation": "^1.0.4"
+  },
+  "devDependencies": {
+    "@angular/cli": "~10.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^1.19.2",
+    "serverless-http": "^2.3.0"
+  }
+}

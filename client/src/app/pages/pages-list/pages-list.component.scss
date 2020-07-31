@@ -1,0 +1,20 @@
+.pages {
+  margin-bottom: 10px;
+}
+
+.paginator__link {
+  display: block;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid;
+  background: #212121;
+  text-decoration: none;
+  color: white;
+  margin: 5px 5px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.paginator__link_active {
+  font-weight: bold;
+}

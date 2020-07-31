@@ -1,0 +1,8 @@
+<div class="hero-image">
+  <div class="shadow"></div>
+  <span class="hero-image__author">Photo by Edgars Kisuro from Pexels</span>
+</div>
+<h2>Featured products</h2>
+<shared-products
+  [products]="(products | async)?.data.collectionByHandle.products.edges"
+></shared-products>

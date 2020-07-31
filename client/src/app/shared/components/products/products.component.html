@@ -1,0 +1,19 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around start">
+  <div fxFlex="24%" *ngFor="let product of products" class="product">
+    <a routerLink="/products/{{ product.node.handle }}">
+      <img
+        class="product__image"
+        [src]="product.node.images.edges[0].node.transformedSrc"
+        [alt]="product.node.images.edges[0].node.altText"
+      />
+    </a>
+    <div>
+      <a routerLink="/products/{{ product.node.handle }}">
+        <h4 class="product__title">{{ product.node.title }}</h4>
+      </a>
+      <div class="product__price">
+        {{ product.node.priceRange | priceRange }}
+      </div>
+    </div>
+  </div>
+</div>

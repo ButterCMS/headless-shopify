@@ -1,0 +1,39 @@
+::ng-deep .cart {
+  max-height: 232px;
+  width: 250px;
+}
+
+.cart_empty {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.cart-products {
+  width: 100%;
+}
+
+.cart-product {
+  position: relative;
+  border-bottom: solid 1px #ebebeb;
+  padding: 20px;
+  width: 100%;
+}
+
+.product-cart__remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.cart-products_empty {
+  padding: 20px;
+}
+
+.cart-product__image {
+  width: 50px;
+  margin-right: 16px;
+}
+
+.button_checkout {
+  margin: 10px 0;
+}

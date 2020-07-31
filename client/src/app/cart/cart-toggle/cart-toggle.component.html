@@ -1,0 +1,74 @@
+<ng-container *ngIf="cartProducts | async as cart">
+  <button mat-icon-button [matMenuTriggerFor]="cartProductsList">
+    <mat-icon [matBadge]="cart | keyNum" matBadgeColor="warn">
+      shopping_cart
+    </mat-icon>
+  </button>
+
+  <mat-menu #cartProductsList="matMenu" xPosition="before">
+    <div class="cart" [ngClass]="{ cart_empty: (cart | keyNum) == 0 }">
+      <div *ngIf="cart | keyNum; else emptyCart">
+        <div class="cart-products">
+          <div
+            *ngFor="let product of cart | keyvalue"
+            class="cart-product"
+            fxLayout="row"
+            fxLayoutAlign="start center"
+          >
+            <a
+              [routerLink]="['products', product.value.handle]"
+              class="display_block"
+            >
+              <img
+                class="cart-product__image"
+                *ngIf="product.value.product.image"
+                [src]="product.value.product.image.transformedSrc"
+                [alt]="product.value.product.image.altText"
+              />
+            </a>
+            <div class="cart-list-txt">
+              <h4>
+                <a [routerLink]="['products', product.value.handle]">
+                  {{ product.value.title }}
+                </a>
+              </h4>
+              <div>
+                {{ product.value.quantity }} x
+                <span class="price">
+                  {{ product.value.product.priceV2.amount }}
+                  {{ product.value.product.priceV2.currencyCode }}
+                </span>
+              </div>
+              <div *ngFor="let option of product.value.product.selectedOptions">
+                <div class="mat-caption">
+                  <b>{{ option.name }}</b
+                  >: {{ option.value }}
+                </div>
+              </div>
+            </div>
+            <div class="product-cart__remove">
+              <button
+                mat-icon-button
+                (click)="removeProductFromCart(product.key)"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div fxLayoutAlign="center center">
+          <button
+            mat-raised-button
+            class="button_checkout"
+            (click)="goToCheckout()"
+          >
+            Go to checkout
+          </button>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <div fxLayoutAlign="center center">Cart is empty</div>
+    </ng-template>
+  </mat-menu>
+</ng-container>

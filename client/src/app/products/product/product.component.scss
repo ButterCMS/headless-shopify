@@ -1,0 +1,47 @@
+.product-data {
+  margin: 10px;
+}
+
+.product-data__description {
+  margin: 10px 0;
+}
+
+.product-tags {
+  margin: 10px 0;
+}
+
+.product-tags__tag {
+  margin-right: 5px;
+}
+
+.product-variants {
+  margin: 10px 0;
+}
+
+.product-variant {
+  margin: 0 10px;
+}
+
+.product__image_featured {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+}
+
+.product-variant__image {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
+.product-variant__actions {
+  margin: 5px 0;
+}
+
+.product-variant__characteristics {
+  margin: 5px 0;
+}
+
+.item-number-picker {
+  margin-bottom: 10px;
+}
